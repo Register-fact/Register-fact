@@ -1,9 +1,28 @@
 ###
-POST http://localhost:5000/login HTTP/1.1
+POST http://localhost:5000/register HTTP/1.1
 Content-Type: application/json
 
 {
    "username": "fernan",
-   "email": "fernandehoyos93@gmail.com",
+   "email": "fernandehoyo93@gmail.com",
    "password": "fernan135"
 }
+
+###
+POST http://localhost:5000/login HTTP/1.1
+Host: localhost:5000
+Content-Type: application/json
+
+{
+    "username": "fernan",
+    "password": "fernan135"
+}
+
+###
+GET http://localhost:5000/protected HTTP/1.1
+Host: localhost:5000
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxMDI3MzUwNCwianRpIjoiYjc3ZDc4YmItZjAyZS00OWFjLWFhN2EtZTYwNmI2ZWI5YjI0IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImZlcm5hbiIsIm5iZiI6MTcxMDI3MzUwNCwiY3NyZiI6IjBlY2RkNDAzLWUxMjItNDhjNy05ODY4LWZkZGYzNTgzOTRhZiIsImV4cCI6MTcxMDI3NDQwNH0.3IZOZ13YU0M0Lso60TtVGBowZLhL-ZQgrXFuhtobMXQ
+
+
+

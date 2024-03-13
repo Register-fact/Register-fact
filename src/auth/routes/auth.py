@@ -1,15 +1,19 @@
 from flask import Blueprint
-from auth.services.usuarios import create_usuario_service
+from auth.services.usuarios import create_usuario_service, protected, login
 
 usuarios = Blueprint('usuarios', __name__)
 
-@usuarios.route('/', methods=['GET'])
+@usuarios.route('/protected', methods=['GET'])
 def getUsuario():
-    return 'get all usuario'
+    return protected()
 
-@usuarios.route('/', methods=['POST'])
+@usuarios.route('/register', methods=['POST'])
 def CreateUsuario():
     return create_usuario_service()
+
+@usuarios.route('/login', methods=['POST'])
+def SignIn():
+    return login() 
 
 @usuarios.route('/<id>', methods=['GET'])
 def getById(id):
