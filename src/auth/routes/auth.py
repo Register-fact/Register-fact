@@ -1,5 +1,5 @@
 from flask import Blueprint
-from auth.services.usuarios import create_usuario_service, protected, login, logout
+from auth.services.usuarios import create_usuario_service, protected, login, logout, refresh_token
 
 usuarios = Blueprint('usuarios', __name__)
 
@@ -26,6 +26,10 @@ def UpdateUsuario(id):
 @usuarios.route('/<id>', methods=['DELETE'])
 def DeleteUsuario(id):
     return 'DeleteUsuario'
+
+@usuarios.route("/refresh", methods=["POST"])
+def refresh():
+    return refresh_token()
 
 @usuarios.route('/logout', methods=['POST'])
 def Logout():

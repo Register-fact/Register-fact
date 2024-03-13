@@ -1,0 +1,25 @@
+###
+POST http://localhost:5000/usuario/addInvoice HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxMDM2OTQwMCwianRpIjoiYzJkNzZkN2ItNDUxOC00ZjhhLTk5M2YtNmU3Nzg4YTU1ZjQ3IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImZlcm5hbiIsIm5iZiI6MTcxMDM2OTQwMCwiY3NyZiI6ImFlYTdlNzljLTFhMzItNGNmZS1hM2M0LWFkMjg3ZTQ5MjNlMCIsImV4cCI6MTcxMDM3MzAwMH0.y5_F0Cg_4kmpIF1ce1w2ejb1vgHwUETr_G-yBN56TF4
+
+{
+    "productos": [
+        {
+            "nombre": "Producto 1",
+            "cantidad": 1,
+            "precio_unitario": 10.50
+        },
+        {
+            "nombre": "Producto 1",
+            "cantidad": 2,
+            "precio_unitario": 10.50
+        },
+        {
+            "nombre": "Producto 1",
+            "cantidad": 2,
+            "precio_unitario": 10.50
+        }
+    ],
+    "total": 100
+}

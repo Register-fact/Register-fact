@@ -1,7 +1,8 @@
 from flask import request, jsonify
-from flask_jwt_extended import get_jwt_identity, unset_jwt_cookies
+from flask_jwt_extended import get_jwt_identity, unset_jwt_cookies, create_refresh_token
 from flask_bcrypt import Bcrypt, check_password_hash
-from flask_jwt_extended import create_access_token, jwt_required, jwt_manager, get_jwt
+from flask_jwt_extended import create_access_token, jwt_required
+from flask_jwt_extended import jwt_required
 from datetime import datetime 
 from config.mongodb import mongo
 from auth.validation.ValidationForm import RegistrationForm
@@ -63,8 +64,19 @@ def login():
     if not check_password_hash(user['password'], password):
         return jsonify({"msg": "Bad username or password"}), 401
 
+    user_id = str(user['_id'])
+    
     access_token = create_access_token(identity=username)
-    return jsonify(access_token=access_token)
+    refresh_token = create_refresh_token(identity=username)
+    
+    return jsonify(access_token=access_token, refresh_token=refresh_token, user_id=user_id)
+
+
+@jwt_required(refresh=True)
+def refresh_token():
+    current_user = get_jwt_identity()
+    new_access_token = create_access_token(identity=current_user)
+    return jsonify(access_token=new_access_token)
 
 @jwt_required()
 def logout():
@@ -72,6 +84,7 @@ def logout():
     resp = jsonify({'logout': True})
     unset_jwt_cookies(resp)
     return resp
+
 
 @jwt_required()
 def protected():
