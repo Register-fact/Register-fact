@@ -10,11 +10,15 @@ load_dotenv()
 app = Flask(__name__)
 app.config['JWT_SECRET_KEY'] = os.getenv('SECRET_KEY')
 app.config['MONGO_URI'] = os.getenv('MONGO_URI')
-mongo.init_app(app)
+#mongo.init_app(app)
 
+def init_db(app):
+    db = mongo.init_app(app)
+    return db
+
+init_db(app)
 
 jwt = JWTManager(app)
-
 
 
 app.register_blueprint(usuarios, url_prefix='/')

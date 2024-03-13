@@ -19,6 +19,12 @@ Content-Type: application/json
 }
 
 ###
+POST http://localhost:5000/logout HTTP/1.1
+Host: localhost:5000
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxMDM0NjA1MiwianRpIjoiMzMxZjM1MjQtZTYzNC00YmY1LTkwNTUtZGYyMjAxM2I0YjI0IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImZlcm5hbiIsIm5iZiI6MTcxMDM0NjA1MiwiY3NyZiI6Ijk4NzQwNzc5LWU2ZjYtNDY4MS1iZWJkLThmOGJmN2YxMjI0NSIsImV4cCI6MTcxMDM0Njk1Mn0.QB_tTX8RLBix2HqG9Tja08p0CxO71jvByLny7gc5dDk
+
+
+###
 GET http://localhost:5000/protected HTTP/1.1
 Host: localhost:5000
 Content-Type: application/json
