@@ -1,25 +1,66 @@
 ###
 POST http://localhost:5000/usuario/addInvoice HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxMDM2OTQwMCwianRpIjoiYzJkNzZkN2ItNDUxOC00ZjhhLTk5M2YtNmU3Nzg4YTU1ZjQ3IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImZlcm5hbiIsIm5iZiI6MTcxMDM2OTQwMCwiY3NyZiI6ImFlYTdlNzljLTFhMzItNGNmZS1hM2M0LWFkMjg3ZTQ5MjNlMCIsImV4cCI6MTcxMDM3MzAwMH0.y5_F0Cg_4kmpIF1ce1w2ejb1vgHwUETr_G-yBN56TF4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxMDQzMTQwMiwianRpIjoiZDU4ODVhNjAtNTllZC00MDg1LTg3MmUtYjBkZjYwNjAxY2MyIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjY1ZjFhMmE5YzAyYjdlYWQ3MjZkOTFlMCIsIm5iZiI6MTcxMDQzMTQwMiwiY3NyZiI6IjM3NDczMWRjLTBjM2UtNGZlNC1hMGQ3LWYxMTk4MWUzYTRmMCIsImV4cCI6MTcxMDQzNTAwMn0.fbt45jnvYUh6DGM_HDTR7t60FnAmzpC_tNuOoCGJWYk
 
 {
     "productos": [
         {
-            "nombre": "Producto 1",
+            "nombre": "Producto 5",
             "cantidad": 1,
             "precio_unitario": 10.50
         },
         {
-            "nombre": "Producto 1",
+            "nombre": "Producto 6",
             "cantidad": 2,
             "precio_unitario": 10.50
         },
         {
-            "nombre": "Producto 1",
+            "nombre": "Producto 7",
             "cantidad": 2,
             "precio_unitario": 10.50
         }
     ],
     "total": 100
 }
+
+###
+GET http://localhost:5000/usuario/getInvoices HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxMDQzMTQwMiwianRpIjoiZDU4ODVhNjAtNTllZC00MDg1LTg3MmUtYjBkZjYwNjAxY2MyIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjY1ZjFhMmE5YzAyYjdlYWQ3MjZkOTFlMCIsIm5iZiI6MTcxMDQzMTQwMiwiY3NyZiI6IjM3NDczMWRjLTBjM2UtNGZlNC1hMGQ3LWYxMTk4MWUzYTRmMCIsImV4cCI6MTcxMDQzNTAwMn0.fbt45jnvYUh6DGM_HDTR7t60FnAmzpC_tNuOoCGJWYk
+
+###
+GET  http://localhost:5000/usuario/getInvoices/65f31cd3ea4bdcfbdf1827d0 HTTP/1.1
+Content-Type: application/json65f30e6726db0e8354c9ef0d
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxMDQzODA4MiwianRpIjoiMjM4MTBkMjUtMzdjNy00ODMyLTlmZjgtZWEyY2VmYjc0ZWMzIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjY1ZjFhMmE5YzAyYjdlYWQ3MjZkOTFlMCIsIm5iZiI6MTcxMDQzODA4MiwiY3NyZiI6ImE1MzIzODZhLTkxMzUtNDQzMC04MGJiLWFhN2JkZGUyZGEwMCIsImV4cCI6MTcxMDQ0MTY4Mn0.F9LXChWwghKTEYRXcMsUzwlGjGC5t00L9pm_FY3YYJw
+
+###
+DELETE  http://localhost:5000/usuario/deleteInvoice/65f30e6726db0e8354c9ef0d HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxMDQzMTQwMiwianRpIjoiZDU4ODVhNjAtNTllZC00MDg1LTg3MmUtYjBkZjYwNjAxY2MyIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjY1ZjFhMmE5YzAyYjdlYWQ3MjZkOTFlMCIsIm5iZiI6MTcxMDQzMTQwMiwiY3NyZiI6IjM3NDczMWRjLTBjM2UtNGZlNC1hMGQ3LWYxMTk4MWUzYTRmMCIsImV4cCI6MTcxMDQzNTAwMn0.fbt45jnvYUh6DGM_HDTR7t60FnAmzpC_tNuOoCGJWYk
+
+###
+PUT  http://localhost:5000/usuario/invoices/65f31cd3ea4bdcfbdf1827d0 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxMDQzODA4MiwianRpIjoiMjM4MTBkMjUtMzdjNy00ODMyLTlmZjgtZWEyY2VmYjc0ZWMzIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjY1ZjFhMmE5YzAyYjdlYWQ3MjZkOTFlMCIsIm5iZiI6MTcxMDQzODA4MiwiY3NyZiI6ImE1MzIzODZhLTkxMzUtNDQzMC04MGJiLWFhN2JkZGUyZGEwMCIsImV4cCI6MTcxMDQ0MTY4Mn0.F9LXChWwghKTEYRXcMsUzwlGjGC5t00L9pm_FY3YYJw
+
+{
+    "productos": [
+      {
+        "cantidad": 1,
+        "nombre": "Cafe",
+        "precio_unitario": 10.5
+      },
+      {
+        "cantidad": 2,
+        "nombre": "Arroz",
+        "precio_unitario": 10.5
+      },
+      {
+        "cantidad": 2,
+        "nombre": "Azucar",
+        "precio_unitario": 10.5
+      }
+    ],
+    "total": 52.5
+  }

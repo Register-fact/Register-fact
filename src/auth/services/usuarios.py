@@ -66,8 +66,8 @@ def login():
 
     user_id = str(user['_id'])
     
-    access_token = create_access_token(identity=username)
-    refresh_token = create_refresh_token(identity=username)
+    access_token = create_access_token(identity=user_id)
+    refresh_token = create_refresh_token(identity=user_id)
     
     return jsonify(access_token=access_token, refresh_token=refresh_token, user_id=user_id)
 
