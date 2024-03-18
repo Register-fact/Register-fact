@@ -14,7 +14,17 @@ Host: localhost:5000
 Content-Type: application/json
 
 {
-    "username": "fernan",
+    "email": "fernandehoyo93@gmail.com",
+    "password": "fernan135"
+}
+
+###
+POST http://localhost:5000/login HTTP/1.1
+Host: localhost:5000
+Content-Type: application/json
+
+{
+    "email": "fernandavid93@gmail.com",
     "password": "fernan135"
 }
 

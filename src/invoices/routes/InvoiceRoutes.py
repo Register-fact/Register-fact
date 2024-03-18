@@ -1,11 +1,11 @@
 from flask import Blueprint
-from invoices.services.invoices import addInvoice, get_all_invoices, get_invoice_by_id, delete_invoice, update_invoice_by_id
+from invoices.services.invoices import addInvoices, get_all_invoices, get_invoice_by_id, delete_invoice, update_invoice_by_id
 
 invoices = Blueprint('invoices', __name__)
 
 @invoices.route('/addInvoice', methods=['POST'])
 def createRegisterInvoice():
-    return addInvoice()
+    return addInvoices()
 
 @invoices.route('/getInvoices', methods=['GET'])
 def Get_all_invoices():

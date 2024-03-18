@@ -5,7 +5,8 @@ from flask_jwt_extended import create_access_token, jwt_required
 from flask_jwt_extended import jwt_required
 from datetime import datetime 
 from config.mongodb import mongo
-from auth.validation.ValidationForm import RegistrationForm
+from auth.validation.ValidationRegisterForm import RegistrationForm 
+from auth.validation.ValidationLoginForm import LoginForm 
 
 
 bcrypt = Bcrypt()
@@ -52,24 +53,32 @@ def create_usuario_service():
     
 
 def login():
-    username = request.json.get("username", None)
-    password = request.json.get("password", None)
+    data = request.get_json()
+    form = LoginForm(data=data)
     
-    user = mongo.db.usuarios.find_one({'username': username})
+    if  form.validate():
+        
+        email = form.email.data
+        password = form.password.data
     
-    if not user:
-        return jsonify({"msg": "Bad username or password"}), 401
+        user = mongo.db.usuarios.find_one({'email': email})
     
-    # Verificar la contraseña cifrada
-    if not check_password_hash(user['password'], password):
-        return jsonify({"msg": "Bad username or password"}), 401
+        if not user:
+            return jsonify({"msg": "Bad username or password"}), 401
+    
+        if not check_password_hash(user['password'], password):
+            return jsonify({"msg": "Bad username or password"}), 401
 
-    user_id = str(user['_id'])
+        user_id = str(user['_id'])
     
-    access_token = create_access_token(identity=user_id)
-    refresh_token = create_refresh_token(identity=user_id)
+        access_token = create_access_token(identity=user_id)
+        refresh_token = create_refresh_token(identity=user_id)
     
-    return jsonify(access_token=access_token, refresh_token=refresh_token, user_id=user_id)
+        return jsonify(access_token=access_token, refresh_token=refresh_token, user_id=user_id)
+
+    else: 
+        errors = form.errors
+        return jsonify(errors), 400
 
 
 @jwt_required(refresh=True)
