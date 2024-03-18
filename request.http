@@ -1,0 +1,49 @@
+###
+POST http://localhost:5000/register HTTP/1.1
+Content-Type: application/json
+
+{
+   "username": "david11",
+   "email": "fernandavid93@gmail.com",
+   "password": "fernan135"
+}
+
+###
+POST http://localhost:5000/login HTTP/1.1
+Host: localhost:5000
+Content-Type: application/json
+
+{
+    "email": "fernandehoyo93@gmail.com",
+    "password": "fernan135"
+}
+
+###
+POST http://localhost:5000/login HTTP/1.1
+Host: localhost:5000
+Content-Type: application/json
+
+{
+    "email": "fernandavid93@gmail.com",
+    "password": "fernan135"
+}
+
+###
+POST http://localhost:5000/logout HTTP/1.1
+Host: localhost:5000
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxMDM0ODk4MCwianRpIjoiZGRjNDUzNzMtZGMzOC00NGRkLTlhNWItZDU5NDVmYTA5MzdmIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImZlcm5hbiIsIm5iZiI6MTcxMDM0ODk4MCwiY3NyZiI6IjJlYjhkNmIyLTE2NmQtNGQ4OS1hZjQ5LTE2YjU4MzMxNGY1NCIsImV4cCI6MTcxMDM1MjU4MH0.VNsr7E-xcgNkWTN_Eca39bRLIDKlw8KDQ31K86hSAmE
+
+
+###
+POST http://localhost:5000/refresh HTTP/1.1
+Host: localhost:5000
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxMDM0ODk1NywianRpIjoiNmJmMDg2ZTUtYzQ4Mi00ZDUwLTllMjktZWIyYzQ4OGVlNzU1IiwidHlwZSI6InJlZnJlc2giLCJzdWIiOiJmZXJuYW4iLCJuYmYiOjE3MTAzNDg5NTcsImNzcmYiOiJlNTRmYzM0Ny1jOWRlLTQyZjMtYjg1MC0xYWE4YWQ2ZjA4NmYiLCJleHAiOjE3MTI5NDA5NTd9.Sl4HRpb3gSVhp4YSkWptFKYjD6J9FF3wtWuwtkxojmQ
+
+###
+GET http://localhost:5000/protected HTTP/1.1
+Host: localhost:5000
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxMDI3MzUwNCwianRpIjoiYjc3ZDc4YmItZjAyZS00OWFjLWFhN2EtZTYwNmI2ZWI5YjI0IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImZlcm5hbiIsIm5iZiI6MTcxMDI3MzUwNCwiY3NyZiI6IjBlY2RkNDAzLWUxMjItNDhjNy05ODY4LWZkZGYzNTgzOTRhZiIsImV4cCI6MTcxMDI3NDQwNH0.3IZOZ13YU0M0Lso60TtVGBowZLhL-ZQgrXFuhtobMXQ
+
+
+
